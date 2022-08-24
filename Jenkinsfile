@@ -4,6 +4,7 @@ node {
       checkout scm  
     }
      stage('Build docker Image'){
+        sh 'env'
       app = docker.build("lingeshwaranr911/jenkins_test")
     }
      stage('Test Image'){
