@@ -4,6 +4,12 @@ node {
       checkout scm  
     }
      stage('Build docker Image'){
+         agent {
+        docker {
+          image 'node:7-alpine'
+          args '--name docker-node' // list any args
+        }
+      }
       app = docker.build("lingeshwaranr911/jenkins_test")
     }
      stage('Test Image'){
